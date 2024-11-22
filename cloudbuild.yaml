@@ -9,8 +9,6 @@ substitutions:
  PROJECTID: dark-quasar-440810-i4
  CINAME: gke-image
  VERSION: V1.0
-options:
-logging: NONE
-
+logsBucket: 'gs://cicdbucket1' 
 
 
