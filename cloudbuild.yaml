@@ -5,10 +5,22 @@ steps:
    args: ['build', '-t', 'gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}', '.']
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}']
+
+#kubctl set image deployment/cicd myimage-sha256-1='gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}'
+ - name: 'gcr.io/cloud-builders/kubectl'
+   args:
+   - 'set'
+   - 'image'
+   - 'deployment/cicd'
+   - 'myimage-sha256-1=gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}'
+   env:
+    - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
+
 substitutions:
  _PROJECTID: dark-quasar-440810-i4
  _CINAME: gke-image
- _VERSION: V1.0
+ _VERSION: V2.0
 logsBucket: 'gs://cicdbucket1' 
 
 
