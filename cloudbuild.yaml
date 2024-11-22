@@ -1,6 +1,6 @@
 steps:
  - name: 'gcr.io/cloud-builders/git'
-   args: ['clone', 'https://github.com/rishi-devops1/repo-1','.']
+   args: ['clone', 'https://github.com/rishi-devops1/repo-1', '.']
  - name: 'gcr.io/cloud-builders/docker'
    args: ['build', '-t', 'gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}', '.']
  - name: 'gcr.io/cloud-builders/docker'
