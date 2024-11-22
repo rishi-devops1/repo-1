@@ -4,7 +4,7 @@ steps:
  - name: 'gcr.io/cloud-builders/docker'
    args: ['build', '-t', 'gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}', '.']
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}', '.']
+   args: ['push', 'gcr.io/${_PROJECTID}/${_CINAME}:${_VERSION}']
 substitutions:
  _PROJECTID: dark-quasar-440810-i4
  _CINAME: gke-image
